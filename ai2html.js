@@ -538,7 +538,7 @@ if (scriptEnvironment=="nyt") {
         project_name: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "text", possibleValues: "", notes: "Use this to set a custom project name. The project name is being used in output filenames, class names, etc."},
         html_output_path: {defaultValue: "../templates/", includeInSettingsBlock: true, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "folderPath", possibleValues: "", notes: "Allows user to change folder to write html files, path should be written relative to ai file location. This is ignored if the project_type in the yml is ai2html."},
         html_output_extension: {defaultValue: ".html", includeInSettingsBlock: true, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "fileExtension", possibleValues: "", notes: "This is ignored if the project_type in the yml is ai2html."},
-        image_output_path: {defaultValue: "../../dist/images/ai2html", includeInSettingsBlock: true, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "folderPath", possibleValues: "", notes: "This is where the image files get written to locally and should be written as if the html_output is the starting point."},
+        image_output_path: {defaultValue: "../../dist/images/", includeInSettingsBlock: true, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "folderPath", possibleValues: "", notes: "This is where the image files get written to locally and should be written as if the html_output is the starting point."},
         image_source_path: {defaultValue: null, includeInSettingsBlock: false, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "folderPath", possibleValues: "", notes: "Use this setting to specify from where the images are being loaded from the HTML file. Defaults to image_output_path"},
         create_config_file: {defaultValue: "false", includeInSettingsBlock: false, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "trueFalse", possibleValues: "", notes: "This is ignored in env=nyt."},
         config_file_path: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false, useQuoteMarksInConfigFile: false, inputType: "filePath", possibleValues: "", notes: "This only gets used to write the config file. It’s not used in the nyt mode to read the config.yml. Path should written relative to the ai file location."},
@@ -593,7 +593,7 @@ if (scriptEnvironment=="nyt") {
 
 var fonts = [
 	{"aifont":"Proxima Nova","family":"proxima-nova, sans-serif","weight":"500","style":""},
-	{"aifont":"Proxima Nova","family":"proxima-nova, sans-serif","weight":"700","style":""}
+	{"aifont":"Proxima Nova","family":"proxima-nova, sans-serif","weight":"700","style":""},
 	{"aifont":"FF Tisa Pro","family":"ff-tisa-web-pro, serif","weight":"700","style":""}
 ];
 
