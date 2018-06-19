@@ -70,7 +70,7 @@ var nytBaseSettings = {
   html_output_path: {defaultValue: "../src/", includeInSettingsBlock: false, includeInConfigFile: false},
   html_output_extension: {defaultValue: ".html", includeInSettingsBlock: false, includeInConfigFile: false},
   image_output_path: {defaultValue: "../public/_assets/", includeInSettingsBlock: false, includeInConfigFile: false},
-  image_source_path: {defaultValue: null, includeInSettingsBlock: false, includeInConfigFile: true},
+  image_source_path: {defaultValue: null, includeInSettingsBlock: false, includeInConfigFile: false},
   cache_bust_token: {defaultValue: null, includeInSettingsBlock: false, includeInConfigFile: false},
   create_config_file: {defaultValue: "false", includeInSettingsBlock: false, includeInConfigFile: false},
   config_file_path: {defaultValue: "../config.yml", includeInSettingsBlock: false, includeInConfigFile: false},
