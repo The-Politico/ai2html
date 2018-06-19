@@ -1,5 +1,106 @@
 
-### Unreleased (ai2html-beta.js)
+### v0.73.0
+- Add data-name= properties to div symbols if they are named in Illustrator.
+
+### v0.72.3
+- Add class containing layer name to symbol layer containers.
+
+### v0.72.2
+- Fix glitches with rendering to divs (flickering lines, rectangle detection).
+- Add support for npm publish
+
+### v0.72.1
+- Load artboard image immediately if it intersects the browser viewport.
+
+### v0.72.0
+- Use IntersectionObserver api in the resizer function, so artboard images are only loaded when they are visible in the browser viewport.
+
+### v0.71.2
+- Support converting multi-segment lines to divs inside :div layers. (Segments must be horizontal or vertical).
+
+### v0.71.1
+- Render horizontal and vertical lines as divs inside layers with :div suffix.
+
+### v0.71.0
+- Render rectangles and circles as scaling divs if they have a parent layer with the :div suffix in its name.
+
+### v0.70.0
+- Render rectangles and circles as non-scaling divs if they have a parent layer with the :symbol suffix in its name.
+
+### v0.69.1
+- Bug fix
+
+### v0.69.0
+- Improved ids of inline SVG elements (based on original Illustrator object names, but unique within a document)
+- Added "svg-id-prefix" setting for namespacing the ids of inline SVG elements to avoid collisions with other elements on the page
+- Added "data-name" attribute to inline SVG elements, containing the original name of the Illustrator art object
+
+### v0.68.1
+- Bug fix
+
+### v0.68.0
+- Added 'inline_svg' setting, which inserts SVG output directly into the HTML output
+
+### v0.67.3
+- Added 'promo_image_width' setting, with 1024 as default
+
+### v0.67.2
+- Added 'data-aspect-ratio' property to artboard divs
+
+### v0.67.1
+- Remove fancy quotes from custom CSS and JS blocks. (AI likes to auto-convert regular double and single quotes to fancy quotes.)
+- Try to fix some other errors in custom CSS, JS and HTML blocks.
+
+### v0.67.0
+- Switched to more compact SVGTINY format for SVG output.
+- Show warning if SVG output includes linked images (Illustrator converts path effects into images during SVG export).
+- Delete images created by Illustrator during SVG output.
+- Remove "untested" warning when using Illustrator CC 2018.
+
+### v0.66.4
+- Fix for slight rightward shift of centered point text (Issue #84).
+
+### v0.66.3
+- Fix for bug causing misalignment of columns of text at some browser zooms, affecting Chrome and Safari (Issue #83).
+
+### v0.66.2
+- Fix: Prevent creation of single-layer image files with duplicate names.
+- Prevent export of single-layer SVG files containing no artwork.
+
+### v0.66.1
+- Prevent scaling of line and polyline objects in exported SVG files.
+
+### v0.66.0
+- Export content of layers with ":svg" appended to their layer name as SVG files.
+
+### v0.65.6
+- Prevent paths in SVG output from scaling by adding CSS to the .svg file.
+
+### v0.65.5
+- Made "Yes" the default when prompting to create a promo image.
+
+### v0.65.4
+- Use separate CSS, HTML and JS blocks for compatibility with NYT vi system.
+
+### v0.65.3
+- Added NYTCheltenhamCond-BoldXC
+- Improved performance on documents containing many masked images.
+
+### v0.65.2
+- Auto-detect output image format if image_format is set to "auto". (Uses jpg if a placed image is visible, otherwise uses png.)
+- Detect NYT context by looking for proprietary Times fonts.
+- Display a prompt when Times users run ai2html outside of a Preview project (the previous warming message was often overlooked).
+
+### v0.65.1
+- Change default use_lazy_loader setting to "yes" for NYT environment.
+
+### v0.65.0
+- Promote `ai2html-beta.js` to `ai2html.js`, rename old `ai2html.js` to `ai2html-legacy.js`
+
+### v0.64.1 (ai2html-beta.js)
+- Point text is valign:middle by default
+
+### v0.64.0 (ai2html-beta.js)
 - Character styles applied to text inside a paragraph are now preserved (e.g. a bolded phrase).
 - Users are prompted to generate promo images when relevant (previously, promo images were automatically generated).
 - Promo images are smaller than before, for performance (1024px instead of >3000px wide).
