@@ -123,9 +123,9 @@ var defaultBaseSettings = {
   output: {defaultValue: "one-file", includeInSettingsBlock: true, includeInConfigFile: false},
   project_name: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
   project_type: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
-  html_output_path: {defaultValue: "/ai2html-output/", includeInSettingsBlock: true, includeInConfigFile: false},
+  html_output_path: {defaultValue: "../templates/", includeInSettingsBlock: true, includeInConfigFile: false},
   html_output_extension: {defaultValue: ".html", includeInSettingsBlock: true, includeInConfigFile: false},
-  image_output_path: {defaultValue: "", includeInSettingsBlock: true, includeInConfigFile: false},
+  image_output_path: {defaultValue: "../../dist/images/", includeInSettingsBlock: true, includeInConfigFile: false},
   image_source_path: {defaultValue: null, includeInSettingsBlock: false, includeInConfigFile: false},
   cache_bust_token: {defaultValue: null, includeInSettingsBlock: false, includeInConfigFile: false},
   create_config_file: {defaultValue: "false", includeInSettingsBlock: false, includeInConfigFile: false},
@@ -149,12 +149,12 @@ var defaultBaseSettings = {
   clickable_link: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
   testing_mode: {defaultValue: "no", includeInSettingsBlock: false, includeInConfigFile: false},
   last_updated_text: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
-  headline: {defaultValue: "Ai Graphic Headline", includeInSettingsBlock: true, includeInConfigFile: true},
-  leadin: {defaultValue: "Introductory text here.", includeInSettingsBlock: true, includeInConfigFile: true},
-  summary: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: true},
-  notes: {defaultValue: "Notes: Text goes here.", includeInSettingsBlock: true, includeInConfigFile: true},
-  sources: {defaultValue: "Source: Name goes here.", includeInSettingsBlock: true, includeInConfigFile: true},
-  credit: {defaultValue: "By ai2html", includeInSettingsBlock: true, includeInConfigFile: true},
+  headline: {defaultValue: "Ai Graphic Headline", includeInSettingsBlock: true, includeInConfigFile: false},
+  leadin: {defaultValue: "Introductory text here.", includeInSettingsBlock: true, includeInConfigFile: false},
+  summary: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
+  notes: {defaultValue: "Notes: Text goes here.", includeInSettingsBlock: true, includeInConfigFile: false},
+  sources: {defaultValue: "Source: Name goes here.", includeInSettingsBlock: true, includeInConfigFile: false},
+  credit: {defaultValue: "By ai2html", includeInSettingsBlock: true, includeInConfigFile: false},
   page_template: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
   publish_system: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
   environment: {defaultValue: "", includeInSettingsBlock: false, includeInConfigFile: false},
@@ -1217,6 +1217,11 @@ function initDocumentSettings(textBlockSettings) {
       settings.create_config_file = true;
       settings.create_promo_image = true;
     }
+  } else { // alternative local config options
+    var yaml = readYamlConfigFile(docPath + "config.yml") || {};
+    forEachProperty(yaml, function(v, k){
+      settings[k] = v;
+    });
   }
 
   // merge settings from text block
